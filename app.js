@@ -46,10 +46,10 @@ const promptUser = () => {
 };
 const promptProject = portfolioData => {
     console.log(`
-  =================
-  Add a New Project
-  =================
-  `);
+=================
+Add a New Project
+=================
+`);
 
     //if there is no 'projects' array property, create one
     if (!portfolioData.projects) {
@@ -94,9 +94,9 @@ const promptProject = portfolioData => {
                 name: 'link',
                 message: 'Enter the GitHub link to your project. (Required)',
                 validate: linkInput => {
-                    if (linkInput)  {
+                    if (linkInput) {
                         return true;
-                    }else {
+                    } else {
                         console.log('You need to enter a project GitHub link!');
                         return false;
                     }
@@ -130,8 +130,15 @@ const promptProject = portfolioData => {
 promptUser()
     .then(promptProject)
     .then(portfolioData => {
-        console.log(portfolioData);
+        const pageHTML = generatePage(portfolioData);
+
+        fs.writeFile('./index.html', pageHTML, err => {
+            if (err) throw new Error(err);
+
+            console.log('Page created! Check out index.html in this directory to see it!');
+        });
     });
+
     //.then(projectAnswers => console.log(projectAnswers));
 
 
