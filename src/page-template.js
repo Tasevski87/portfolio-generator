@@ -1,3 +1,4 @@
+
 const generateAbout = aboutText => {
     if (!aboutText) {
         return '';
@@ -64,7 +65,6 @@ module.exports = templateData => {
     return `
     <!DOCTYPE html>
     <html lang="en">
-
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,8 +92,10 @@ module.exports = templateData => {
     <footer class="container text-center py-3">
         <h3 class="text-dark">&copy; ${new Date().getFullYear()} by ${header.name}</h3>
     </footer>
+
     </body>
     </html>
     `;
 };
+
 

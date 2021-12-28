@@ -45,11 +45,7 @@ const promptUser = () => {
     ]);
 };
 const promptProject = portfolioData => {
-    console.log(`
-=================
-Add a New Project
-=================
-`);
+    console.log(`=================Add a New Project=================`);
 
     //if there is no 'projects' array property, create one
     if (!portfolioData.projects) {
